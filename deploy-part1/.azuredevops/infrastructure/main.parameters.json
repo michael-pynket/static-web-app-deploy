@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "resourceGroupName": {
+        "value": "my-awesome-static-web-apps"
+      },
+      "location": {
+        "value": "westeurope"
+      },
+      "staticWebAppName": {
+        "value": "awesome-static-webapp"
+      },
+      "sku": {
+        "value": "Free"
+      },
+      "provider": {
+        "value": "DevOps"
+      },
+      "branch": {
+        "value": "main"
+      },
+      "repositoryUrl": {
+        "value": "https://dev.azure.com/{YOUR_ORGANIZATION}/{YOUR_PROJECT}/_git/{YOUR_REPOSITORY}"
+      },
+      "repositoryToken": {
+        "value": "{REPOSITORY_TOKEN}"
+      }
+    }
+  }

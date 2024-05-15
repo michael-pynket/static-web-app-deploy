@@ -1,0 +1,39 @@
+name: $(Date:yyyyMMdd).$(Rev:rr)
+
+trigger: none
+
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: main
+
+stages:
+- stage: Deploy_to_Azure
+  jobs:
+    - deployment: Deploy_to_Azure
+      displayName: "Deploy Infrastructure to Azure"
+      environment: 'Deploy-to-Azure'
+      pool: 
+        vmImage: ubuntu-latest
+      variables:
+      - group: Static-Web-App-TheridionIT-Infrastructure-Deployment
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - checkout: self
+            - task: AzureCLI@2  
+              displayName: Deploy Infrastructure Resources
+              inputs:
+                azureSubscription: {YOUR_AZURE_SERVICE_CONNECTION_NAME}
+                scriptType: pscore
+                scriptLocation: inlineScript
+                inlineScript: |
+                  az account set --name {YOUR_SUBSCRIPTION_ID}
+                  az deployment sub create `
+                    --location westeurope `
+                    --template-file ./.azuredevops/infrastructure/main.bicep `
+                    --parameters ./.azuredevops/infrastructure/main.parameters.json `
+                    --parameters repositoryToken=$(Personal_Access_Token) `
+                    --name '$(Build.BuildNumber)'

@@ -24,7 +24,7 @@
       "value": "https://dev.azure.com/{YOUR_ORGANIZATION}/{YOUR_PROJECT}/_git/{YOUR_REPOSITORY}"
     },
     "repositoryToken": {
-      "value": "{REPOSITORY_TOKEN}"
+      "value": "{TOKEN_WILL_BE_PASSED_BY_PIPELINE}"
     }
   }
 }

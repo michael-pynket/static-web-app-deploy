@@ -5,3 +5,10 @@ It explains the use case of deploying a simple shtml website [Theridion IT](http
 
 # Part 1
 Part 1 handles deploying the Bicep from a local machine.
+
+[INFRASTRUCTURE AS CODE DEPLOYMENT WITH BICEP](https://www.random-awesome-memory.be/infrastructure-as-code-deployment-with-bicep)
+
+# Part 2
+Part 2 handles deploying the Bicep from a pipeline in Azure DevOps.
+
+[INFRASTRUCTURE AS CODE DEPLOYMENT WITH BICEP - Part 2: Automating using pipelines](https://www.random-awesome-memory.be/infrastructure-as-code-deployment-with-bicep-part-2)
